@@ -1,5 +1,10 @@
-app = 'my-iptv-1080p-7tdyxq'
-primary_region = 'iad'
+# fly.toml app configuration file generated for inf on 2026-09-14T19:45:04Z
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'inf'
+primary_region = 'sin'
 
 [build]
 
@@ -14,4 +19,6 @@ primary_region = 'iad'
 [[vm]]
   size = 'shared-cpu-1x'
   memory = '1024MB'
+  cpu_kind = 'shared'
   cpus = 1
+  memory_mb = 4096
