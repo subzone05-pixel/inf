@@ -5,12 +5,12 @@ mkdir -p /app/live
 # Nginx স্টার্ট
 nginx
 
-# শুধু লোগো ওভারলে + নো বাফারিং মোড
+# ছোট লোগো ওভারলে (85px)
 ffmpeg -re \
   -fflags nobuffer -flags low_delay \
   -f concat -safe 0 -protocol_whitelist file,http,https,tcp,tls -stream_loop -1 -i /app/playlist.txt \
   -i /app/logo.jpg \
-  -filter_complex "[1:v]scale=120:-1[logo];[0:v][logo]overlay=W-w-30:30[v_out]" \
+  -filter_complex "[1:v]scale=85:-1[logo];[0:v][logo]overlay=W-w-20:20[v_out]" \
   -map "[v_out]" -map 0:a? \
   -c:v libx264 -preset ultrafast -tune zerolatency \
   -c:a copy \
